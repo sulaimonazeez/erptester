@@ -160,7 +160,7 @@ export default function OrderPage() {
             className="border p-3 rounded-lg"
           >
             <option value="">Select Product</option>
-            <option value="Hair Grow">Hair Grow</option>
+            <option value="Self Love Plus">Self Love Plus</option>
             <option value="Hair Combo Pack">Hair Combo Pack</option>
           </select>
 
