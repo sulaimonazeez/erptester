@@ -12,7 +12,8 @@ export default function OrderPage() {
     lga: "",
     product: "",
     payment_method: "Pay on Delivery",
-    source: "React-Web"
+    source: "React-Web",
+    total: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -37,6 +38,7 @@ export default function OrderPage() {
         address: form.address,
         state: form.state,
         lga: form.lga,
+        total: form.total,
         product: form.product,
         payment_method: form.payment_method
       };
@@ -62,7 +64,8 @@ export default function OrderPage() {
           lga: "",
           product: "",
           payment_method: "Pay on Delivery",
-          source: "React-Web"
+          source: "React-Web",
+          total:""
         });
       } else {
         setMessage("❌ " + (data.error || "Unknown error"));
@@ -119,6 +122,15 @@ export default function OrderPage() {
             name="phone"
             placeholder="Phone Number"
             value={form.phone}
+            onChange={handleChange}
+            required
+            className="border p-3 rounded-lg outline-none focus:ring-2 focus:ring-black"
+          />
+          
+          <input
+            name="phone"
+            placeholder="Phone Number"
+            value={form.total}
             onChange={handleChange}
             required
             className="border p-3 rounded-lg outline-none focus:ring-2 focus:ring-black"
