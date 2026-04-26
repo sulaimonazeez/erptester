@@ -128,8 +128,8 @@ export default function OrderPage() {
           />
           
           <input
-            name="phone"
-            placeholder="Phone Number"
+            name="total"
+            placeholder="Amount"
             value={form.total}
             onChange={handleChange}
             required
