@@ -13,7 +13,7 @@ export default function OrderPage() {
     product: "",
     payment_method: "Pay on Delivery",
     source: "React-Web",
-    total: ""
+    amount: ""
   });
 
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ export default function OrderPage() {
         address: form.address,
         state: form.state,
         lga: form.lga,
-        total: form.total,
+        amount: form.amount,
         product: form.product,
         payment_method: form.payment_method
       };
@@ -65,7 +65,7 @@ export default function OrderPage() {
           product: "",
           payment_method: "Pay on Delivery",
           source: "React-Web",
-          total:""
+          amount:""
         });
       } else {
         setMessage("❌ " + (data.error || "Unknown error"));
@@ -128,9 +128,9 @@ export default function OrderPage() {
           />
           
           <input
-            name="total"
+            name="amount"
             placeholder="Amount"
-            value={form.total}
+            value={form.amount}
             onChange={handleChange}
             required
             className="border p-3 rounded-lg outline-none focus:ring-2 focus:ring-black"
