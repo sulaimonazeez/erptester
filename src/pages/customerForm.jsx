@@ -7,6 +7,7 @@ export default function OrderPage() {
   const [form, setForm] = useState({
     full_name: "",
     phone: "",
+    email: "",
     address: "",
     state: "",
     lga: "",
@@ -31,10 +32,11 @@ export default function OrderPage() {
     try {
       const payload = {
         order_id: "ORD-" + Date.now(),
-        source: form.source,              // must match allowed values
-        event_type: "partial",            // backend only allows partial/complete/status_change
-        customer_name: form.full_name,    // backend expects customer_name
+        source: form.source,
+        event_type: "partial",
+        customer_name: form.full_name,
         phone: form.phone,
+        customer_email: form.email,
         address: form.address,
         state: form.state,
         lga: form.lga,
@@ -59,13 +61,14 @@ export default function OrderPage() {
         setForm({
           full_name: "",
           phone: "",
+          email: "",
           address: "",
           state: "",
           lga: "",
           product: "",
           payment_method: "Pay on Delivery",
           source: "React-Web",
-          amount:""
+          amount: ""
         });
       } else {
         setMessage("❌ " + (data.error || "Unknown error"));
@@ -120,13 +123,23 @@ export default function OrderPage() {
 
           <input
             name="phone"
+            type="tel"
             placeholder="Phone Number"
             value={form.phone}
             onChange={handleChange}
             required
             className="border p-3 rounded-lg outline-none focus:ring-2 focus:ring-black"
           />
-          
+
+          <input
+            name="email"
+            type="email"
+            placeholder="Email Address (optional — for order updates)"
+            value={form.email}
+            onChange={handleChange}
+            className="border p-3 rounded-lg outline-none focus:ring-2 focus:ring-black"
+          />
+
           <input
             name="amount"
             placeholder="Amount"
